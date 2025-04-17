@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Play Game Boy</title>
+  <script src="emulator.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      height: 100%;
+    }
+    #game {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">Loading...</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rom = params.get('rom');
+    if (rom) {
+      EJS_player = "#game";
+      EJS_core = "gb";
+      EJS_gameUrl = `roms/${rom}`;
+      EJS_pathtodata = "data/";
+      EJS_startOnLoaded = true;
+      EJS_start();
+    } else {
+      document.getElementById("game").innerText = "No ROM specified.";
+    }
+  </script>
+</body>
+</html>
