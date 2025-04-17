@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Loader</title>
+</head>
+<body style="margin:0;background:#000;">
+  <script>
+    const url = new URL(window.location.href);
+    const core = url.hash.match(/core=([^&]+)/)?.[1];
+    const rom = url.hash.match(/rom=([^&]+)/)?.[1];
+    if (!core || !rom) {
+      document.body.innerHTML = "<h1 style='color:white;text-align:center;'>Missing core or ROM in URL.</h1>";
+    } else {
+      const iframe = document.createElement("iframe");
+      iframe.src = `index.html?core=${core}&rom=${rom}`;
+      iframe.width = "100%";
+      iframe.height = "100%";
+      iframe.style.border = "none";
+      iframe.allowFullscreen = true;
+      document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
