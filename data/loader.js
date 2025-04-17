@@ -1,5 +1,1 @@
-
-// Placeholder EmulatorJS loader
-window.EJS_start = function () {
-  document.querySelector("#game").innerHTML = "[ EmulatorJS would load here. Please upload actual data/loader.js and core files. ]";
-};
+console.log('[Real EmulatorJS loader.js should be placed here to load wasm cores]');
